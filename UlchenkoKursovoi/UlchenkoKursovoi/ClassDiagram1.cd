@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UlchenkoKursovoi.WelcomeForm">
+    <Position X="3" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAASACAAAIAAAAAEAAAAAIAAI=</HashCode>
+      <FileName>WelcomeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UlchenkoKursovoi.Uchenik">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAgAAAACAAQAAAQAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Uchenik.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UlchenkoKursovoi.Program">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UlchenkoKursovoi.Form1">
+    <Position X="5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAASAAABIQAAiAAAADIEA4AABCEHQIAIAAAAg=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

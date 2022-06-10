@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "T+EA8rpjPcRc6xBjq7Suqa6GFWgvL1rd7M8nIco/NmyJtXDnlfzJQHu1C5wmT0uydtQqbPNehVtljfUj8ZNgsA==",
+  "success": true,
+  "projectFilePath": "D:\\хрень\\kursOOP\\UlchenkoKursovoi\\UlchenkoKursovoi\\UlchenkoKursovoi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ulche\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
