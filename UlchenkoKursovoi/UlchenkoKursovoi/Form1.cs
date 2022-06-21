@@ -11,17 +11,32 @@ namespace UlchenkoKursovoi
 {
     public partial class Form1 : Form
     {
-        List<Uchenik> uchen = JsonConvert.DeserializeObject<List<Uchenik>>(File.ReadAllText("database.json"));
-
+        static string dataBasePath = "C:\\Users\\Public\\Documents\\database.json";
+        List<Uchenik> uchen = JsonConvert.DeserializeObject<List<Uchenik>>(File.ReadAllText(open_file()));
+        List<Uchenik> uchenCopy = new List<Uchenik>();
         public Form1()
         {
             InitializeComponent();
-            reDrawTable();
+            reDrawTable(uchen);
 
             textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
             textBox2.KeyPress += new KeyPressEventHandler(textBox2_KeyPress);
             textBox4.KeyPress += new KeyPressEventHandler(textBox4_KeyPress);
         }
+
+        /// <summary>
+        /// Проверяет существует ли файл, если нет создает
+        /// </summary>
+        /// <returns>адрес файла</returns>
+        private static string open_file()
+        {
+            if (!File.Exists(dataBasePath))
+            {
+                File.Create(dataBasePath);
+            }
+            return dataBasePath;
+        }
+
         /// <summary>
         /// Добавление ученика
         /// </summary>
@@ -89,7 +104,8 @@ namespace UlchenkoKursovoi
             try
             {
                 uchen.Remove(uchen.Where(u => u.Name.ToLower() == textBox1.Text.ToLower()).First());
-                reDrawTable();
+                //reDrawTable();
+                reDrawTable(uchen);
             }
             catch
             {
@@ -116,7 +132,7 @@ namespace UlchenkoKursovoi
                 uchen.Select(u => u).Where(u => u.Name.ToLower() == textBox1.Text.ToLower()).First().KolOshibok = int.Parse(textBox4.Text);
                 uchen.Select(u => u).Where(u => u.Name.ToLower() == textBox1.Text.ToLower()).First().ResPredEx = comboBox1.Text;
                 uchen.Select(u => u).Where(u => u.Name.ToLower() == textBox1.Text.ToLower()).First().ResEx = comboBox2.Text;
-                reDrawTable();
+                reDrawTable(uchen);
             }
             catch
             {
@@ -131,7 +147,8 @@ namespace UlchenkoKursovoi
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            File.WriteAllText("database.json", JsonConvert.SerializeObject(uchen));
+            // File.WriteAllText("database.json", JsonConvert.SerializeObject(uchen));
+            File.WriteAllText(dataBasePath, JsonConvert.SerializeObject(uchen));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -142,11 +159,11 @@ namespace UlchenkoKursovoi
         /// <summary>
         /// Метод отоброжения актуальных данных в таблице
         /// </summary>
-        private void reDrawTable()
+        private void reDrawTable(List<Uchenik> ucheniks)
         {
             listView2.Items.Clear();
 
-            foreach (var uc in uchen)
+            foreach (var uc in ucheniks)
             {
                 var item1 = new ListViewItem(new[] {
                     uc.Name,
@@ -203,6 +220,36 @@ namespace UlchenkoKursovoi
             {
                 e.Handled = true;
             }
+        }
+
+        /// <summary>
+        /// Фильтрация по категории обучения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (uchenCopy.Count != 0)
+            {
+                uchenCopy.Clear();
+            }
+
+            var uchenCopy1 = uchen.Select(u => u).Where(u => u.Kateg == comboBox3.Text);
+            foreach (var uc in uchenCopy1)
+            {
+                uchenCopy.Add(uc);
+            }
+            reDrawTable(uchenCopy);
+        }
+
+        /// <summary>
+        /// Сброс фильтрации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            reDrawTable(uchen);
         }
     }
 }
