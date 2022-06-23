@@ -24,10 +24,6 @@ namespace UlchenkoKursovoi
             textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
             textBox2.KeyPress += new KeyPressEventHandler(textBox2_KeyPress);
             textBox4.KeyPress += new KeyPressEventHandler(textBox4_KeyPress);
-
-            //listView2.SelectedIndexChanged += new ListViewItemSelectionChangedEventHandler(listView2_SelectedIndexChanged);
-            //listView2.SelectedItems += new ListViewItemSelectionChangedEventHandler(listView2_SelectedIndexChanged);
-            //listView2.ColumnClick += new ColumnClickEventHandler(listView2_ColumnClick);
         }
 
         /// <summary>
