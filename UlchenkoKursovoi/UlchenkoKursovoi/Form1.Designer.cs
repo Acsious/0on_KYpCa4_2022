@@ -55,6 +55,7 @@ namespace UlchenkoKursovoi
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView2
@@ -70,13 +71,15 @@ namespace UlchenkoKursovoi
             this.colPredRes,
             this.colExRes});
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(303, 12);
+            this.listView2.Location = new System.Drawing.Point(324, 4);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(738, 456);
+            this.listView2.Size = new System.Drawing.Size(723, 455);
             this.listView2.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView2_ColumnClick);
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // colStudents
             // 
@@ -111,9 +114,9 @@ namespace UlchenkoKursovoi
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(13, 350);
+            this.button1.Location = new System.Drawing.Point(13, 381);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 33);
+            this.button1.Size = new System.Drawing.Size(139, 33);
             this.button1.TabIndex = 2;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
@@ -122,9 +125,9 @@ namespace UlchenkoKursovoi
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(13, 390);
+            this.button2.Location = new System.Drawing.Point(13, 421);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 36);
+            this.button2.Size = new System.Drawing.Size(139, 36);
             this.button2.TabIndex = 3;
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = true;
@@ -133,9 +136,9 @@ namespace UlchenkoKursovoi
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Location = new System.Drawing.Point(148, 350);
+            this.button3.Location = new System.Drawing.Point(158, 381);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 33);
+            this.button3.Size = new System.Drawing.Size(160, 33);
             this.button3.TabIndex = 4;
             this.button3.Text = "Изменить";
             this.button3.UseVisualStyleBackColor = true;
@@ -144,9 +147,9 @@ namespace UlchenkoKursovoi
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(148, 390);
+            this.button4.Location = new System.Drawing.Point(158, 421);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 36);
+            this.button4.Size = new System.Drawing.Size(160, 36);
             this.button4.TabIndex = 5;
             this.button4.Text = "Сохранить";
             this.button4.UseVisualStyleBackColor = true;
@@ -242,7 +245,7 @@ namespace UlchenkoKursovoi
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 241);
+            this.label6.Location = new System.Drawing.Point(13, 248);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(216, 15);
             this.label6.TabIndex = 16;
@@ -253,7 +256,7 @@ namespace UlchenkoKursovoi
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 294);
+            this.label7.Location = new System.Drawing.Point(12, 301);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 15);
             this.label7.TabIndex = 18;
@@ -266,7 +269,7 @@ namespace UlchenkoKursovoi
             this.comboBox1.Items.AddRange(new object[] {
             "Сдал",
             "Не сдал"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 259);
+            this.comboBox1.Location = new System.Drawing.Point(12, 266);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(216, 23);
             this.comboBox1.TabIndex = 19;
@@ -278,7 +281,7 @@ namespace UlchenkoKursovoi
             this.comboBox2.Items.AddRange(new object[] {
             "Сдал",
             "Не сдал"});
-            this.comboBox2.Location = new System.Drawing.Point(12, 312);
+            this.comboBox2.Location = new System.Drawing.Point(12, 319);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(216, 23);
             this.comboBox2.TabIndex = 20;
@@ -300,9 +303,9 @@ namespace UlchenkoKursovoi
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(148, 432);
+            this.button5.Location = new System.Drawing.Point(235, 169);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(149, 36);
+            this.button5.Size = new System.Drawing.Size(83, 23);
             this.button5.TabIndex = 23;
             this.button5.Text = "Сброс";
             this.button5.UseVisualStyleBackColor = true;
@@ -311,19 +314,31 @@ namespace UlchenkoKursovoi
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(13, 432);
+            this.button6.Location = new System.Drawing.Point(235, 139);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(129, 36);
+            this.button6.Size = new System.Drawing.Size(83, 24);
             this.button6.TabIndex = 22;
             this.button6.Text = "Фильтрация";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button7.Location = new System.Drawing.Point(235, 47);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(83, 43);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Поиск по имени";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 472);
+            this.ClientSize = new System.Drawing.Size(1053, 471);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox3);
@@ -380,6 +395,7 @@ namespace UlchenkoKursovoi
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 
