@@ -34,7 +34,9 @@ namespace UlchenkoKursovoi
         {
             if (!File.Exists(dataBasePath))
             {
-                File.Create(dataBasePath);
+                var myFile = File.Create(dataBasePath);
+                myFile.Close();
+                File.WriteAllText(dataBasePath, "[]");
             }
             return dataBasePath;
         }
